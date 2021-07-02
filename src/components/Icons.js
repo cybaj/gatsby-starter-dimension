@@ -8,30 +8,93 @@ import React from 'react'
 
 const ICON_SIZE = 24
 
-const Icons = ({buttonURL}) => {
+const isMobile = () => {
+  if (typeof window !== 'undefined') {
+    return window.matchMedia && window.matchMedia('(max-width: 480px)').matches
+  }
+  return true
+}
+
+const Icons = ({ buttonURL }) => {
+  const wrapperStyle = isMobile()
+    ? { display: 'flex', flexDirection: 'column' }
+    : {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+      }
   return (
-    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-      <div style={{ display: 'flex', paddingHorizontal: 5, flexDirection: 'row', justifyContent: 'center' }}>
-        <div style={{ padding: 10}}>
-          <img src={icon_3dsmax} style={{ borderRadius: '20%', width: ICON_SIZE, height: ICON_SIZE }} width={ICON_SIZE} height={ICON_SIZE} />
+    <div style={wrapperStyle}>
+      <div
+        style={{
+          display: 'flex',
+          paddingHorizontal: 5,
+          flexDirection: 'row',
+          justifyContent: 'center',
+        }}
+      >
+        <div style={{ padding: 10 }}>
+          <img
+            src={icon_3dsmax}
+            style={{ borderRadius: '20%', width: ICON_SIZE, height: ICON_SIZE }}
+            width={ICON_SIZE}
+            height={ICON_SIZE}
+          />
         </div>
         <div style={{ padding: 10 }}>
-          <img src={icon_zbrush} style={{ borderRadius: '20%',  width: ICON_SIZE, height: ICON_SIZE }} width={ICON_SIZE} height={ICON_SIZE} />
+          <img
+            src={icon_zbrush}
+            style={{ borderRadius: '20%', width: ICON_SIZE, height: ICON_SIZE }}
+            width={ICON_SIZE}
+            height={ICON_SIZE}
+          />
         </div>
         <div style={{ padding: 10 }}>
-          <img src={icon_subs} style={{  borderRadius: '20%', width: ICON_SIZE, height: ICON_SIZE }} width={ICON_SIZE} height={ICON_SIZE} />
+          <img
+            src={icon_subs}
+            style={{ borderRadius: '20%', width: ICON_SIZE, height: ICON_SIZE }}
+            width={ICON_SIZE}
+            height={ICON_SIZE}
+          />
         </div>
         <div style={{ padding: 10 }}>
-          <img src={icon_marmoset4} style={{  borderRadius: '20%', width: ICON_SIZE, height: ICON_SIZE }} width={ICON_SIZE} height={ICON_SIZE} />
+          <img
+            src={icon_marmoset4}
+            style={{ borderRadius: '20%', width: ICON_SIZE, height: ICON_SIZE }}
+            width={ICON_SIZE}
+            height={ICON_SIZE}
+          />
         </div>
         <div style={{ padding: 10 }}>
-          <img src={icon_photoshop} style={{ border: '3px', boxShadow: 'inset 0 0 0 3px #ffffff', borderRadius: '20%',  width: ICON_SIZE, height: ICON_SIZE }} width={ICON_SIZE} height={ICON_SIZE} />
+          <img
+            src={icon_photoshop}
+            style={{
+              border: '3px',
+              boxShadow: 'inset 0 0 0 3px #ffffff',
+              borderRadius: '20%',
+              width: ICON_SIZE,
+              height: ICON_SIZE,
+            }}
+            width={ICON_SIZE}
+            height={ICON_SIZE}
+          />
         </div>
       </div>
-      <button style={{lineHeight: 'normal', fontSize:8, padding:'10px', height:'30px'}} onClick={()=>{window.open(buttonURL)}}>Concept Source</button>
+      <button
+        style={{
+          lineHeight: 'normal',
+          fontSize: 8,
+          padding: '10px',
+          height: '30px',
+        }}
+        onClick={() => {
+          window.open(buttonURL)
+        }}
+      >
+        Concept Source
+      </button>
     </div>
   )
 }
 
 export default Icons
-

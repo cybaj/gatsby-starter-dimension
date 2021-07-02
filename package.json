@@ -25,6 +25,7 @@
   "scripts": {
     "build": "gatsby build --prefix-paths",
     "develop": "gatsby develop",
+    "develop-lan": "gatsby develop -H 192.168.0.13 -p 8000",
     "format": "prettier --write '**/*.js'",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d public"
